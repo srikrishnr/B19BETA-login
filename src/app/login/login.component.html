@@ -1,0 +1,48 @@
+<div class="login_bar">
+  <p>
+    <mat-toolbar class="flexExpand" class="mat-login-hbar">
+      <div>
+        <h3>Login</h3>
+      </div>
+      <span class="flexExpand"></span>
+      <div>
+        <span>New User?</span>&nbsp;
+        <button mat-raised-button class="mat-elevation-z4" [routerLink]='["/register"]'>
+          Register
+        </button>
+      </div>
+    </mat-toolbar>
+  </p>
+  <mat-card>
+    <mat-card-content class="mat-elevation-z2">
+      <div>
+        <form [formGroup]="form" (ngSubmit)="submit()" class="f_body">
+          <p>
+            <mat-form-field>
+              <input type="text" matInput placeholder="Username" formControlName="username">
+              <mat-error
+                *ngIf="form.controls['username'].invalid && (form.controls['username'].dirty || form.controls['username'].touched)"
+                class="alert">
+                Username is required
+                </mat-error>
+            </mat-form-field>
+          <p>
+            <mat-form-field>
+              <input [type]="showPassword ? 'text' : 'password'" matInput placeholder="Password" formControlName="password">
+              <mat-icon matSuffix (click)="togglePasswordVisibility()">
+                {{showPassword?'visibility_off':'visibility'}}
+            </mat-icon>
+              <mat-error
+                *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched) && form.get('password')?.errors?.['required']">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+          </p>
+          <mat-card-actions mat-dialog-actions align="end">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Login</button>
+          </mat-card-actions>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

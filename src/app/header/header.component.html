@@ -1,0 +1,27 @@
+<p>
+  <mat-toolbar color="primary" class="docs-navbar-header mat-elevation-z2">
+    <mat-toolbar-row>
+      <div class="brand-title">
+        <button mat-button [routerLink]='["/bookcart"]'>
+          <mat-icon>book</mat-icon> Book Cart
+        </button>
+      </div>
+
+      <div>
+        <button mat-button *ngIf="!isLoggedIn" [routerLinkActive]='["link-active"]' [routerLink]='["/bookcart"]'>Login</button>
+        <button mat-button (click)=logout() *ngIf="isLoggedIn" [routerLinkActive]='["link-active"]' [routerLink]='["/login"]'>Logout</button>
+        <!-- <button mat-button *ngIf="!isLoggedIn" [routerLinkActive]='["link-active"]' [routerLink]='["/bookcart"]'>Login</button> -->
+
+        <button mat-button>
+          <a class="github-link" href="/swagger/index.html" target="_blank">
+            <span><img src="https://static1.smartbear.co/swagger/media/assets/swagger_fav.png" /></span>
+            Swagger
+          </a>
+        </button>
+        <button mat-button><a class="github-link" href="https://github.com/AnkitSharma-007/bookcart" target="_blank"><i
+              class="fa fa-github"></i> GitHub</a>
+        </button>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
