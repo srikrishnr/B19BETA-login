@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
   //   error => this.error = error
   // );
 }
-public togglePasswordVisibility(): void {
+public togglePasswordVisibility() {
   this.showPassword = !this.showPassword;
 }
 }
